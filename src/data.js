@@ -313,7 +313,7 @@ let data = [
 let animalFoods = [
     {
         id: "catfood1",
-        pic: "../../public/PetFoods/cats-food-1.png", // use path as if this was in the used jsx file, not this file (tried with singe double dots (../) before and didn't work)
+        pic: "/PetFoods/cats-food-1.png", // use path as if this was in the used jsx file, not this file (tried with singe double dots (../) before and didn't work)
         name: "Brit  Care",
         flavour: "Chicken",
         for: "All",
@@ -323,7 +323,7 @@ let animalFoods = [
     },
     {
         id: "catfood2",
-        pic: "../../public/PetFoods/cats-food-2.png",
+        pic: "/PetFoods/cats-food-2.png",
         name: "Funnycats",
         flavour: "Chicken",
         for: "Adult",
@@ -333,7 +333,7 @@ let animalFoods = [
     },
     {
         id: "catfood3",
-        pic: "../../public/PetFoods/cats-food-3.png",
+        pic: "/PetFoods/cats-food-3.png",
         name: "Happy Cat",
         flavour: "Fish",
         for: "Kitten",
@@ -343,7 +343,7 @@ let animalFoods = [
     },
     {
         id: "catfood4",
-        pic: "../../public/PetFoods/cats-food-4.png",
+        pic: "/PetFoods/cats-food-4.png",
         name: "Brit Premium",
         flavour: "Salmon",
         for: "Adult",
@@ -353,7 +353,7 @@ let animalFoods = [
     },
     {
         id: "dogfood1",
-        pic: "../../public/PetFoods/dogs-food-1.png",
+        pic: "/PetFoods/dogs-food-1.png",
         name: "Nulo - Medal Series",
         flavour: "Salmon and Sweet Potato",
         for: "Adult",
@@ -363,7 +363,7 @@ let animalFoods = [
     },
     {
         id: "dogfood2",
-        pic: "../../public/PetFoods/dogs-food-2.png",
+        pic: "/PetFoods/dogs-food-2.png",
         name: "IAMSO",
         flavour: "Chicken and Barley",
         for: "Adult",
@@ -373,7 +373,7 @@ let animalFoods = [
     },
     {
         id: "dogfood3",
-        pic: "../../public/PetFoods/dogs-food-3.png",
+        pic: "/PetFoods/dogs-food-3.png",
         name: "Happy Dog",
         flavour: "Fish, Potato, and Banana",
         for: "Adult",
@@ -383,7 +383,7 @@ let animalFoods = [
     },
     {
         id: "dogfood4",
-        pic: "../../public/PetFoods/dogs-food-4.png",
+        pic: "/PetFoods/dogs-food-4.png",
         name: "Purina - Bakers Complete",
         flavour: "Chicken, Rice, and Vegetables",
         for: "Adult",
@@ -393,7 +393,7 @@ let animalFoods = [
     },
     {
         id: "birdfood1",
-        pic: "../../public/PetFoods/birds-food-1.png",
+        pic: "/PetFoods/birds-food-1.png",
         name: "Roudybush",
         flavour: "Corn",
         for: "All",
@@ -403,7 +403,7 @@ let animalFoods = [
     },
     {
         id: "birdfood2",
-        pic: "../../public/PetFoods/birds-food-2.png",
+        pic: "/PetFoods/birds-food-2.png",
         name: "Douwe Egberts",
         flavour: "Wheat",
         for: "Young",
@@ -413,7 +413,7 @@ let animalFoods = [
     },
     {
         id: "birdfood3",
-        pic: "../../public/PetFoods/birds-food-3.png",
+        pic: "/PetFoods/birds-food-3.png",
         name: "KG Group",
         flavour: "Rice",
         for: "Chicken",
@@ -423,7 +423,7 @@ let animalFoods = [
     },
     {
         id: "fishfood1",
-        pic: "../../public/PetFoods/fishes-food-1.png",
+        pic: "/PetFoods/fishes-food-1.png",
         name: "Bug Bites",
         flavour: "Bugs",
         for: "Small",
@@ -433,7 +433,7 @@ let animalFoods = [
     },
     {
         id: "fishfood2",
-        pic: "../../public/PetFoods/fishes-food-2.png",
+        pic: "/PetFoods/fishes-food-2.png",
         name: "Vital Aquatics - Discus Meat Mix",
         flavour: "Bugs",
         for: "Small",
@@ -443,7 +443,7 @@ let animalFoods = [
     },
     {
         id: "fishfood2",
-        pic: "../../public/PetFoods/fishes-food-2.png",
+        pic: "/PetFoods/fishes-food-2.png",
         name: "Vital Aquatics - Discus Basic",
         flavour: "Bugs",
         for: "Small",
@@ -453,7 +453,7 @@ let animalFoods = [
     },
     {
         id: "fishfood2",
-        pic: "../../public/PetFoods/fishes-food-2.png",
+        pic: "/PetFoods/fishes-food-2.png",
         name: "Vital Aquatics - Discus Insect",
         flavour: "Bugs",
         for: "All",
@@ -463,7 +463,7 @@ let animalFoods = [
     },
     {
         id: "fishfood2",
-        pic: "../../public/PetFoods/fishes-food-2.png",
+        pic: "/PetFoods/fishes-food-2.png",
         name: "Vital Aquatics - Growth",
         flavour: "Bugs",
         for: "Adult",
