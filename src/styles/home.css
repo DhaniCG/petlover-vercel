@@ -1,0 +1,407 @@
+/* * {
+  border: 1px solid red;
+} */
+
+.petlover-logo {
+    width: 5vw;
+}
+  
+  /* Nav Bar */
+  
+  
+  
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2rem 0;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  font-family: "Varela Round";
+  font-size: 1rem;
+  margin-right: 2rem;
+}
+
+nav .dropdown-nav-btn {
+  border: 0;
+  background-color: transparent;
+  font-family: "Varela Round";
+  color: #F04462;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+nav .dropdown-nav-btn img {
+  margin-left: 0.5rem;
+}
+
+nav .adopt {
+  display: none; /* Change to "flex" when active*/
+  position: absolute;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  padding-right: 2.3rem;
+}
+
+nav .dropdown-adopt:hover .adopt {
+  display: flex;
+}
+
+nav .pet-foods {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  padding: 1rem 0.5rem;
+  padding-right: 1.1rem;
+}
+
+nav .dropdown-food:hover .pet-foods {
+  display: flex;
+}
+
+nav .content:hover {
+  display: block;
+}
+
+nav .content a {
+  position: relative;
+  bottom: 0.3rem;
+  margin-top: 0.7rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #F04462;
+  font-size: 1.2rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+  
+  /* Banner */
+  
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("/banner-img-pc.jpg"); /* You dont have to specify the exact location from this css file... (Noticed this when the terminal told me so) */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.banner .slogan {
+  position: relative;
+  width: 60%;
+  top: 4rem;
+  margin-left: 6rem;
+}
+
+.banner .slogan span {
+  font-family: "Satisfy", sans-serif;
+  color: #F04462;
+}
+
+.banner .slogan p {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+.banner .slogan p.bottom {
+  font-size: 2.5rem;
+  margin: 0;
+}
+  
+  /* Pet Categories */
+  
+.pet-categories {
+  background-color: #EFD2D7;
+  text-align: center;
+  padding: 4rem;
+  /* visibility: hidden; */
+}
+
+.pet-categories * {
+  margin: 0 auto;
+}
+
+.pet-categories h3 {
+  color: #F04462;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.pet-categories hr {
+  border-top: 0.2rem solid #f044618a;
+  width: 15%;
+  margin: 2rem auto;
+}
+
+.pet-categories .category-btns {
+  display: flex;
+  align-content: space-around;
+  gap: 1.5rem;
+}
+
+.pet-categories .category-btn {
+  border: 0.35rem solid #F04462;
+  border-radius: 2rem;
+  background-color: white;
+  /* width: 10rem; */
+  padding: 2rem 3rem;
+  transition: 200ms;
+}
+
+.pet-categories .category-btn:hover {
+  background-color: #ecdfe2;
+  transition: 200ms;
+}
+
+.pet-categories .category-btn img {
+  width: 80px
+}
+
+.pet-categories a {
+  color: #F04462;
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+  
+  /* Reasons To Buy Foods Section */
+  
+.buy-food-reason {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+  margin: auto;
+  padding: 1.5rem 0;
+}
+
+.buy-food-reason .preview-img {
+  align-self: center; /* this will make the image not stretch when the parent has display set to flex*/
+  width: 35vw;
+}
+
+.buy-food-reason .why h3 {
+  font-size: 2rem;
+}
+
+.buy-food-reason .why h3 span {
+  color: #F04462;
+}
+
+.buy-food-reason .reasons ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border-left: 0.2rem solid #F04462;
+}
+
+.buy-food-reason .reasons ul li {
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+
+.buy-food-reason .reasons ul li img {
+  width: 2.5vw;
+  align-self: center;
+  margin-right: 1rem;
+}
+
+.buy-food-reason .reasons ul li p {
+  color: #F04462;
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.25rem;
+}
+
+.buy-food-reason .reasons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: white;
+  background-color: #F04462;
+  font-size: 1.5rem;
+  border-radius: 100rem;
+  text-decoration: none;
+  width: max-content;
+  padding: 1rem 1.8rem;
+  margin: 2rem auto;
+  transition: 200ms;
+}
+
+.buy-food-reason .reasons a:hover {
+  background-color: #f04461e3;
+  transform: 200ms;
+}
+
+  /* Featured Foods */
+
+.featured-foods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.4rem solid #F04462;
+  border-radius: 3.5rem;
+  background-color: #efefef;
+  width: 80%;
+  margin: auto;
+  padding: 0 2.5rem 2.5rem;
+  filter: drop-shadow(0.5rem 0.5rem 5px #00000040);
+}
+
+.featured-foods h3 {
+  font-size: 2rem;
+}
+
+.featured-foods h3 span {
+  color: #F04462;
+}
+
+.featured-foods .food-sections .btns {
+  display: flex;
+  justify-content:space-between;
+  margin: auto;
+}
+
+.featured-foods .food-sections .btns button {
+  border-color: transparent;
+  background-color: transparent;
+  color: #F04462;
+  font-family: "Comfortaa", sans-serif;
+  width: 25%;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: -0.35rem;
+  padding: 1.3rem;
+  z-index: 5;
+}
+
+.featured-foods .food-sections .btns button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#active {
+  border: 0.4rem solid #F04462;
+  border-bottom: transparent;
+  border-radius: 2rem 2rem 0 0;
+  background-color: #f1e4e6;
+}
+
+.featured-foods .food-sections .featured-food-contents {
+  border: 0.4rem solid #F04462;
+  background-color: #f1e4e6;
+  text-align: center;
+  margin: auto;
+  padding: 3rem;
+}
+
+#border-top-left-radius {
+  border-radius: 0 2rem 2rem 2rem;
+}
+
+#border-top-right-radius {
+  border-radius: 2rem 0 2rem 2rem;
+}
+
+#border-radius {
+  border-radius: 2rem;
+}
+
+.featured-foods .food-sections .featured-food-contents ul {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Varela Round", sans-serif;
+  margin: auto;
+  padding: 0;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li {
+  border: 0.3rem solid  #F04462;
+  border-radius: 2rem;
+  box-sizing: border-box;
+  background-color: white;
+  list-style-type: none;
+  width: 20%;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li img {
+  width: 80%;
+  margin: 1rem 1rem 0.5rem;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.5rem;
+}
+.featured-foods .food-sections .featured-food-contents ul li i {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 70%;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li hr {
+  width: 60%;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li .interaction-btns {
+  display: flex;
+  position: relative;
+  top: 2px;
+  right: 1.5px;
+  justify-content: space-evenly;
+  border-radius: 0 0 1.8rem 1.8rem;
+  background-color: #F04462;
+  width: 102%;
+  margin-top: 0.8rem;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li a img {
+  position: relative;
+  top: 2px;
+  border-color: transparent;
+  background-color: transparent;
+  width: 3rem;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li a {
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  font-size: 2rem;
+  width: 50%;
+  align-self: center;
+}
+
+.featured-foods .food-sections .featured-food-contents ul li .divider {
+  border-left: 1px solid white;
+  /* height: 60%; */
+  margin: 1.1rem 0;
+}

@@ -1,0 +1,138 @@
+html {
+    min-height: 100vh;
+}
+
+/* Error Page */
+
+#error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #F04462;
+    font-family: "Varela Round", sans-serif;
+}
+
+#error-page h1 {
+    font-size: 5rem;
+    margin: 0.5rem auto;
+}
+#error-page img {
+    width: 12%;
+}
+#error-page p {
+    font-size: 1.5rem;
+}
+
+#error-page i {
+    color: #00000099;
+}
+
+#error-page a {
+    border-radius: 100rem;
+    background-color: #F04462;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    transition: 200ms;
+}
+
+#error-page a:hover {
+    background-color: #f04461e3;
+    transition: 200ms;
+}
+
+/* Footer */
+
+#footer {
+    background-color: lightgrey;
+    margin-top: 4rem;
+    padding: 2rem 2rem 1rem;
+}
+  
+#footer .footer-contents {
+    display: flex;
+    font-family: "Varela", sans-serif;
+    margin-bottom: 1.5rem;
+}
+  
+#footer .footer-contents .subscription img {
+    width: 7vw;
+    filter: drop-shadow(1px 1px 1px #00000066);
+}
+  
+#footer .footer-contents .subscription p {
+    color: #F04462;
+    font-size: 1.1rem;
+}
+  
+#footer .footer-contents .subscription form {
+    display: flex;
+    align-items: center;
+    height: 2.3rem;
+}
+  
+#footer .footer-contents .subscription input {
+    outline: transparent;
+    border: 0.3rem solid #F04462;
+    border-radius: 100rem 0 0 100rem;
+    font-size: 1rem;
+    height: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+  
+#footer .footer-contents .subscription button {
+    /* position: relative;
+    top: 1px;
+    right: 2px; */
+    border: 0.3rem solid #F04462;
+    border-radius: 0 100rem 100rem 0;
+    background-color: #F04462;
+    color: white;
+    font-family: "Varela", sans-serif;
+    font-size: 1rem;
+    height: 3rem;
+    padding-right: 0.7rem;
+}
+  
+#footer .footer-contents .subscription button:hover {
+    cursor: pointer;
+}
+  
+#footer .footer-contents > div {
+    display: inline-block;
+    margin-right: 10rem;
+    padding: 0.1px;
+}
+  
+#footer .footer-contents h4 {
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+  
+#footer .footer-contents .categories {
+    display: flex;
+    flex-direction: column;
+}
+  
+#footer .footer-contents a {
+    margin-bottom: 0.5rem;
+}
+  
+#footer .footer-contents p, #footer .footer-contents a {
+    color: #000000b3;
+    text-decoration: none;
+}
+  
+#footer .footer-contents .categories a:hover {
+    color: black;
+    text-decoration: underline;
+}
+  
+#footer i {
+    color: #00000099;
+    font-size: 0.9rem;
+}
