@@ -73,7 +73,7 @@ export default function Foods() {
                     {contents.map((food, index) => {
                         return (
                             <div key={index} aria-label={`${food.name}`}>
-                                <img src={food.pic ? food.pic : "../../public/image-not-found-icon.svg"} alt={food.type} />
+                                <img src={food.pic ? food.pic : "/image-not-found-icon.svg"} alt={food.type} />
                                 <div className="detail">
                                     <p>{food.name}</p>
                                     <i>{food.type}</i>

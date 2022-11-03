@@ -11,7 +11,7 @@ export default function PetInfo() {
         <>
         <Link to={navigate(-1)} id="back">&#60; Back</Link>
         <div id="info">
-            <img src={currentData.pic ? currentData.pic : "/public/image-not-found-icon.svg"} alt={currentData.type} />
+            <img src={currentData.pic ? currentData.pic : "/image-not-found-icon.svg"} alt={currentData.type} />
             <table>
                 <tbody>
                     <tr>

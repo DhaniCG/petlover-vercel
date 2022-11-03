@@ -71,7 +71,7 @@ export default function Animals() {
                     {contents.map((animal, index) => {
                         return (
                             <div key={index} aria-label={`${animal.name} the ${animal.type}`}>
-                                <img src={animal.pic ? animal.pic : "../../public/image-not-found-icon.svg"} alt={animal.type} />
+                                <img src={animal.pic ? animal.pic : "/image-not-found-icon.svg"} alt={animal.type} />
                                 <div className="detail">
                                     <p>{animal.name}</p>
                                     <i>{animal.type}</i>

@@ -313,7 +313,7 @@ let data = [
 let animalFoods = [
     {
         id: "catfood1",
-        pic: "/PetFoods/cats-food-1.png", // use path as if this was in the used jsx file, not this file (tried with singe double dots (../) before and didn't work)
+        pic: "/PetFoods/cats-food-1.png",
         name: "Brit  Care",
         flavour: "Chicken",
         for: "All",
