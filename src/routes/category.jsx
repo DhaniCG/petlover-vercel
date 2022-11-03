@@ -29,6 +29,7 @@ export default function Animals() {
     return (
         <>
             <header>
+                <Link to={"/"}><img src="/logo-white.svg" alt="Petlover" id="logo" /></Link>
                 <Form role="search">
                     <input 
                         type="search" 
