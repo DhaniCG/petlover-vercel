@@ -8,7 +8,7 @@ export default function Root() {
             <section id="footer">
                 <div className="footer-contents">
                     <div className="subscription">
-                        <img src="../../public/logo.svg" alt="petlover-logo" className="petlover-logo" />
+                        <img src="/logo.svg" alt="petlover-logo" className="petlover-logo" />
                         <p>Subscribe to our news letter</p>
 
                         <form action="post">
