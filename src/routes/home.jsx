@@ -1,7 +1,7 @@
 import "../styles/home.css"
 
-import { Link, NavLink, useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { animalFoods } from "../data";
 
 export default function Home() {
@@ -144,10 +144,10 @@ export default function Home() {
                 <div className="featured-foods-content">
                     <div className="food-sections">
                         <div className="btns">
-                            <button onClick={foodCategory} className="category-btn" id="active">Cat</button>
-                            <button onClick={foodCategory} className="category-btn">Dog</button>
-                            <button onClick={foodCategory} className="category-btn">Bird</button>
-                            <button onClick={foodCategory} className="category-btn">Fish</button>
+                            <button onClick={foodCategory} id="active">Cat</button>
+                            <button onClick={foodCategory}>Dog</button>
+                            <button onClick={foodCategory}>Bird</button>
+                            <button onClick={foodCategory}>Fish</button>
                         </div>
 
                         <div id="border-top-left-radius" className="featured-food-contents">

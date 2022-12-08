@@ -287,10 +287,10 @@ nav a:hover {
   color: #F04462;
   font-family: "Comfortaa", sans-serif;
   width: 25%;
-  font-size: 2rem;
+  font-size: 32px;
   font-weight: bold;
-  margin-bottom: -0.35rem;
-  padding: 1.3rem;
+  margin-bottom: -6px;
+  padding: 24px;
   z-index: 5;
 }
 
@@ -300,9 +300,9 @@ nav a:hover {
 }
 
 #active {
-  border: 0.4rem solid #F04462;
+  border: 6px solid #F04462;
   border-bottom: transparent;
-  border-radius: 2rem 2rem 0 0;
+  border-radius: 32px 32px 0 0;
   background-color: #f1e4e6;
 }
 
