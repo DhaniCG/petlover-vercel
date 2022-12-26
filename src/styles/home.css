@@ -464,7 +464,7 @@ nav a:hover {
   margin-bottom: 0;
 }
 
-@media only screen and (max-width: 834px) {
+@media only screen and (max-width: 1005px) {
   .pet-categories {
     padding: 2rem;
   }
@@ -791,14 +791,12 @@ nav a:hover {
   right: 1.5%;
   justify-content: space-evenly;
   border-radius: 0 0 1.8rem 1.8rem;
-  background-color: #F04462;/*#F04462*/
+  background-color: #F04462;
   width: 103%;
   margin-top: 0.8rem;
 }
 
 .featured-foods .food-sections .featured-food-contents ul li a img {
-  /* position: relative;
-  top: 2px; */
   border-color: transparent;
   background-color: transparent;
   width: 3.5vw;
