@@ -50,17 +50,31 @@ html {
     background-color: lightgrey;
     margin-top: 4rem;
     padding: 2rem 2rem 1rem;
+    overflow-x: hidden;
 }
   
 #footer .footer-contents {
     display: flex;
+    flex-wrap: wrap;
     font-family: "Varela", sans-serif;
     margin-bottom: 1.5rem;
 }
+
+#footer .footer-contents .website {
+    display: flex;
+    gap: 6rem;
+    margin: 2rem 0 0;
+    margin-right: 3rem;
+}
+
+#footer .footer-contents .subscription {
+    margin-right: 6rem;
+}
   
 #footer .footer-contents .subscription img {
-    width: 7vw;
+    width: 5rem;
     filter: drop-shadow(1px 1px 1px #00000066);
+    margin: 0;
 }
   
 #footer .footer-contents .subscription p {
@@ -70,8 +84,7 @@ html {
   
 #footer .footer-contents .subscription form {
     display: flex;
-    align-items: center;
-    height: 2.3rem;
+    align-items: stretch;
 }
   
 #footer .footer-contents .subscription input {
@@ -79,15 +92,10 @@ html {
     border: 0.3rem solid #F04462;
     border-radius: 100rem 0 0 100rem;
     font-size: 1rem;
-    height: 100%;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0 1rem;
 }
   
 #footer .footer-contents .subscription button {
-    /* position: relative;
-    top: 1px;
-    right: 2px; */
     border: 0.3rem solid #F04462;
     border-radius: 0 100rem 100rem 0;
     background-color: #F04462;
@@ -135,4 +143,50 @@ html {
 #footer i {
     color: #00000099;
     font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 834px) {
+    #footer .footer-contents {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #footer .footer-contents .website {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #footer .footer-contents .subscription {
+        margin-right: 0;
+    }
+
+    #footer .footer-contents .subscription img {
+        width: 5rem;
+    }
+      
+    #footer .footer-contents .subscription form {
+        width: 90vw;
+    }
+      
+    #footer .footer-contents .subscription input {
+        font-size: 0.8rem;
+        width: auto;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    #footer .footer-contents .subscription button {
+        height: auto;
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 365px) {
+    #footer .footer-contents .subscription input {
+        width: 6.5rem;
+    }
+
+    #footer .footer-contents .subscription p {
+        font-size: 0.9rem;
+    }
 }

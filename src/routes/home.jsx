@@ -32,13 +32,87 @@ export default function Home() {
         setFoods(animalFoods.filter(food => food.type === e.target.innerHTML && food.featured));
     }
 
+    const menu = (e) => {
+        document.getElementsByClassName("phone-mode")[0].classList.toggle("nav-active");
+
+        if (document.getElementById("menu-list").classList.contains("hidden")) {
+            document.getElementById("menu-list").classList.toggle("hidden");
+            document.getElementById("menu-list").classList.toggle("menu-transit");
+        } else {
+            setTimeout(() => {
+                document.getElementById("menu-list").classList.toggle("hidden");
+            }, 200);
+        }
+
+        document.querySelector("body").classList.toggle("hidden");
+
+        e.currentTarget.classList.toggle("nav-inactive");
+        e.currentTarget.classList.toggle("nav-active");
+
+        window.scrollTo(0, 0);
+
+        if (!document.getElementById("menu-list").classList.contains("menu-active")) {
+            setTimeout(() => {
+                document.getElementById("menu-list").classList.toggle("menu-transit");
+                document.getElementById("menu-list").classList.toggle("menu-active");
+            }, 0);
+
+            if (document.getElementsByClassName("dropdown-active").length != 0) {
+                
+                document.querySelectorAll(".dropdown-active").forEach(
+                    element => element.classList.remove("dropdown-active")
+                );
+            }
+
+            return;
+        }
+
+        document.getElementById("menu-list").classList.toggle("menu-transit");
+        document.getElementById("menu-list").classList.remove("menu-active");
+        setTimeout(() => {
+            document.getElementById("menu-list").classList.toggle("menu-transit");
+        }, 200);
+    }
+
+    const dropdownActivation = (e) => {
+        // store .target into a const variable, because event will be removed as soon as the event reaches the end part,
+        // which will make the .target event becomes null in setTimeout()
+        const currTarget = e.currentTarget; 
+        
+        if (!currTarget.classList.contains("dropdown-active")) {
+            if (document.getElementsByClassName("dropdown-active").length != 0) {
+                
+                document.querySelectorAll(".dropdown-active").forEach(
+                    element => element.classList.remove("dropdown-active")
+                );
+            }
+        }
+        
+        // getElementsByClassName or getElementsByTagName returns array of classes or tags, that's why you need to specify the index
+        // in order to make the .toggle works, in this case, index is set to 1 because pc-mode also have the same class
+        
+        currTarget.classList.toggle("dropdown-transit");
+        currTarget.parentElement.getElementsByTagName("div")[0].classList.toggle("dropdown-transit");
+        
+        setTimeout(() => {
+            currTarget.classList.toggle("dropdown-active");
+            currTarget.parentElement.getElementsByTagName("div")[0].classList.toggle("dropdown-active");
+        }, 1);
+    }
+
+    const scrollToTop = () => window.scrollTo(0, 0)
+
+    const bodyHiddenRemove = () => {
+        document.querySelector("body").classList.remove("hidden");
+    }
+
     return (
         <>
             <section className="banner">
-                <nav>
+                <nav className="pc-mode">
                     <ul>
                         <li>
-                            <Link to={''}><img src="/logo.svg" alt="petlover-logo" className="petlover-logo" /></Link>
+                            <Link to={'/'} onClick={scrollToTop}><img src="/logo.svg" alt="petlover-logo" className="petlover-logo" /></Link>
                         </li>
                         <li className="dropdown-adopt">
                             <button id="" className="dropdown-nav-btn adopt-btn">
@@ -54,7 +128,7 @@ export default function Home() {
                         </li>
                         <li className="dropdown-food">
                             <button id="" className="dropdown-nav-btn pet-foods-button">
-                                Pet Foods<img src="/nav-arrow.svg" alt="petlover-logo" />
+                                Pet Foods<img src="/nav-arrow.svg" alt="" />
                             </button>
                             <div className="pet-foods content">
                                 <Link to={'foods/all'}>For All Pets</Link>
@@ -75,8 +149,53 @@ export default function Home() {
                         </li>
                     </ul>
                 </nav>
+                <nav className="phone-mode">
+                    <Link to={'/'} onClick={scrollToTop}><img src="/logo.svg" alt="petlover-logo" className="petlover-logo" /></Link>
+                    <div className="hamburger nav-inactive" onClick={menu}>
+                        <div className="hamburger-icon">
+                            <div className="hamburger-line top"></div>
+                            <div className="hamburger-line center"></div>
+                            <div className="hamburger-line bottom"></div>
+                        </div>
+                    </div>
+                    <ul id="menu-list" className="hidden">
+                        <li>
+                            <button className="sub-category adopt-btn" onClick={dropdownActivation}>
+                                Adopt a Pet<img src="/nav-arrow.svg" alt="" />
+                            </button>
+                            <div id="adopt-a-pet" className="content">
+                                <Link to={`category/all/`} onClick={bodyHiddenRemove}>All Animals</Link>
+                                <Link to={`category/cats/`} onClick={bodyHiddenRemove}>Cats</Link>
+                                <Link to={'category/dogs'} onClick={bodyHiddenRemove}>Dogs</Link>
+                                <Link to={'category/birds'} onClick={bodyHiddenRemove}>Birds</Link>
+                                <Link to={'category/fishes'} onClick={bodyHiddenRemove}>Fishes</Link>
+                            </div>
+                        </li>
+                        <li>
+                            <button className="sub-category pet-foods-button" onClick={dropdownActivation}>
+                                Pet Foods<img src="/nav-arrow.svg" alt="" />
+                            </button>
+                            <div id="pet-foods" className="content">
+                                <Link to={'foods/all'} onClick={bodyHiddenRemove}>For All Pets</Link>
+                                <Link to={'foods/cats'} onClick={bodyHiddenRemove}>For Cats</Link>
+                                <Link to={'foods/dogs'} onClick={bodyHiddenRemove}>For Dogs</Link>
+                                <Link to={'foods/birds'} onClick={bodyHiddenRemove}>For Birds</Link>
+                                <Link to={'foods/fishes'} onClick={bodyHiddenRemove}>For Fishes</Link>
+                            </div>
+                        </li>
+                        <li>
+                            <Link to={''}>Services</Link>
+                        </li>
+                        <li>
+                            <Link to={''}>Contact</Link>
+                        </li>
+                        <li>
+                            <Link to={''}>About</Link>
+                        </li>
+                    </ul>
+                </nav>
                 <div className="slogan">
-                    <p id="slog">Giving our pets <span>Love</span></p>
+                    <p>Giving our pets <span>Love</span></p>
                     <p className="bottom">Is the way make our life <span>Happy</span></p>
                 </div>
             </section>
@@ -85,22 +204,22 @@ export default function Home() {
                 <h3>Choose Our Pet Categories</h3>
                 <hr />
                 <div className="category-btns">
-                    <Link to={"category/cats"} className="category-btn cats">
+                    <Link to={"category/cats"} className="category-btn cats" onClick={scrollToTop}>
                         <img src="/Categories/cat-icon.png" alt="cats" />
                         <p>Cats</p>
                     </Link>
 
-                    <Link to={"category/dogs"} className="category-btn dogs">
+                    <Link to={"category/dogs"} className="category-btn dogs" onClick={scrollToTop}>
                         <img src="/Categories/dog-icon.png" alt="dogs" />
                         <p>Dogs</p>
                     </Link>
 
-                    <Link to={"category/birds"} className="category-btn birds">
+                    <Link to={"category/birds"} className="category-btn birds" onClick={scrollToTop}>
                         <img src="/Categories/bird-icon.png" alt="birds" />
                         <p>Birds</p>
                     </Link>
 
-                    <Link to={"category/fishes"} className="category-btn fishes">
+                    <Link to={"category/fishes"} className="category-btn fishes" onClick={scrollToTop}>
                         <img src="/Categories/fish-icon.png" alt="fishes" />
                         <p>Fishes</p>
                     </Link>
@@ -131,7 +250,7 @@ export default function Home() {
                                 <p>So Many Choices</p>
                             </li>
                         </ul>
-                        <Link to={'foods/all'}>
+                        <Link to={'foods/all'} onClick={scrollToTop}>
                             Browse Pet Foods <img src="/btn-arrow.svg" alt="browse-more-pet-foods" />
                         </Link>
                     </div>

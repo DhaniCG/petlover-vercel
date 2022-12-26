@@ -1,9 +1,31 @@
-/* * {
-  border: 1px solid red;
-} */
+/* Body */
+
+body {
+  overflow: auto;
+}
+
+body.hidden {
+  overflow: hidden;
+}
+
+/* Logo */
 
 .petlover-logo {
+  position: relative;
     width: 5vw;
+    z-index: 10;
+}
+
+@media only screen and (max-width: 834px) {
+  .petlover-logo {
+    width: 4.5rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  .petlover-logo {
+    margin-left: 2rem;
+  }
 }
   
   /* Nav Bar */
@@ -12,9 +34,15 @@
   
 nav {
   position: absolute;
+  background-image: linear-gradient(#ffffffb3, transparent);
   top: 0;
   left: 0;
+  width: 100%;
   padding: 2rem 0;
+}
+
+nav.phone-mode {
+  display: none;
 }
 
 nav ul {
@@ -86,6 +114,228 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+
+@media only screen and (max-width: 834px) { /* tablet */
+  nav ul li {
+    margin-right: 1rem;
+  }
+
+  nav .dropdown-nav-btn img {
+    height: 0.65rem;
+    margin-left: 0.4rem;
+  }
+
+  nav a, nav .dropdown-nav-btn {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+  nav.pc-mode {
+    display: none;
+  }
+
+  nav.phone-mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    transition: 200ms;
+  }
+
+  nav.phone-mode.nav-active {
+    background-color: white;
+    transition: 200ms;
+  }
+
+  .hamburger-icon {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    gap: 0.35rem;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 2rem;
+    z-index: 10;
+  }
+
+  .hamburger-icon:hover {
+    cursor: pointer;
+  }
+
+  .hamburger-icon .hamburger-line {
+    border-radius: 100rem;
+    background-color: #F04462;
+    width: 2.3rem;
+    height: 0.4rem;
+    transition: all 250ms ease;
+  }
+
+  .hamburger.nav-inactive .top,
+  .hamburger.nav-inactive .bottom {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    transform: rotate(0deg);
+    transition: all 250ms ease;
+  }
+
+  .hamburger.nav-active .top {
+    position: relative;
+    top: 0.75rem;
+    transform: rotate(45deg);
+    transition: all 250ms ease;
+  }
+
+  .hamburger.nav-active .center {
+    position: relative;
+    top: 0;
+    transform: rotate(0deg);
+    width: 0.2rem;
+    transition: all 250ms ease;
+  }
+
+  .hamburger.nav-active .bottom {
+    position: relative;
+    top: -0.75rem;
+    transform: rotate(-45deg);
+    transition: all 250ms ease;
+  }
+
+  #menu-bg {
+    display: none;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f044612d;
+  }
+
+  #menu-bg.menu-transit {
+    display: block;
+    opacity: 0%;
+    transition: all 250ms ease;
+  }
+
+  #menu-bg.menu-active {
+    opacity: 100%;
+    transition: all 250ms ease;
+  }
+
+  #menu-list {
+    position: absolute;
+    border-bottom: 0.2rem solid #F04462;
+    flex-direction: column;
+    top: 8.75rem;
+    left: 0vw;
+    background-color: white;
+    width: 100%;
+    height: 19rem;
+    padding: 1rem 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 5;
+  }
+  
+  #menu-list li {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  
+  #menu-list li a, #menu-list li button {
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.8rem 0;
+    padding-left: 10vw;
+    width: 100%;
+  }
+
+  #menu-list li button {
+    border: 0px solid transparent;
+    outline-style: none;
+    background-color: transparent;
+    color: #F04462;
+    text-align: left;
+  }
+
+  #menu-list button img {
+    width: 1.1rem;
+    transform: rotate(-90deg);
+    margin-left: 0.8rem;
+    transition: 200ms;
+  }
+
+  #menu-list button.sub-category {
+    padding-left: 10vw;
+  }
+
+  #menu-list button.sub-category:hover, #menu-list a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #f3e0e3;
+  }
+
+  #menu-list.hidden {
+    display: none;
+  }
+
+  #menu-list.menu-transit {
+    display: block;
+    opacity: 0%;
+    height: 0;
+    transition: all 200ms ease;
+  }
+  
+  #menu-list.menu-active {
+    opacity: 100%;
+    height: 17rem;
+    transition: all 200ms ease;
+  }
+
+  .content {
+    display: none;
+  }
+
+  .content.dropdown-active { /* class name from .classList.toggle at home.js */
+    display: block;
+    padding: 1px 0 0;
+  }
+
+  #menu-list button.sub-category.dropdown-active img {
+    transform: rotate(0deg);
+    transition: 200ms;
+  }
+  
+  .dropdown-active, #menu-list button.sub-category.dropdown-active {
+    background-color: #f7f0f1;
+  }
+
+  #adopt-a-pet.content a, #pet-foods.content a {
+    padding-left: 15vw;
+  }
+
+  /* Scrollbar Styles */
+
+  #menu-list::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  nav {
+    background-image: none;
+  }
+
+  nav a img,
+  nav .hamburger-icon,
+  .banner .slogan p { /* I put banner here because it will have the exact same code, just to make it tidier */
+    filter: drop-shadow(1px 1px 0.1vw rgba(0, 0, 0, 25%));
+  }
+}
   
   /* Banner */
   
@@ -93,7 +343,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url("/banner-img-pc.jpg"); /* You dont have to specify the exact location from this css file... (Noticed this when the terminal told me so) */
+  background-image: url("/banner-img-pc.jpg"); /* when using a framework tool such as Vite, you do it this way to access the assets inside of public directory (the first slash is a direction starts from public folder) */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -106,7 +356,7 @@ nav a:hover {
   position: relative;
   width: 60%;
   top: 4rem;
-  margin-left: 6rem;
+  margin-left: 8%;
 }
 
 .banner .slogan span {
@@ -115,13 +365,47 @@ nav a:hover {
 }
 
 .banner .slogan p {
-  font-size: 3.5rem;
+  font-size: 4.1vw;
   margin: 0;
 }
 
 .banner .slogan p.bottom {
-  font-size: 2.5rem;
+  font-size: 3vw;
   margin: 0;
+}
+
+@media only screen and (max-width: 834px) {
+  .banner {
+    display: block;
+    background-image: linear-gradient(rgba(241, 166, 179, 25%), rgba(241, 166, 179, 25%)), url("/banner-img-tablet.jpg");
+    background-position: bottom;
+    height: 30rem;
+    padding-top: 12rem;
+  }
+
+  .banner .slogan {
+    position: static;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+  }
+
+  .banner .slogan p {
+    font-size: 6vw;
+  }
+
+  .banner .slogan p.bottom {
+    font-size: 4.5vw;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .banner {
+    display: flex;
+    background-image: url("/banner-phone.jpg");
+    background-position: center;
+    padding: 0;
+  }
 }
   
   /* Pet Categories */
@@ -130,7 +414,6 @@ nav a:hover {
   background-color: #EFD2D7;
   text-align: center;
   padding: 4rem;
-  /* visibility: hidden; */
 }
 
 .pet-categories * {
@@ -159,7 +442,6 @@ nav a:hover {
   border: 0.35rem solid #F04462;
   border-radius: 2rem;
   background-color: white;
-  /* width: 10rem; */
   padding: 2rem 3rem;
   transition: 200ms;
 }
@@ -180,6 +462,73 @@ nav a:hover {
   text-decoration: none;
   margin-top: 1rem;
   margin-bottom: 0;
+}
+
+@media only screen and (max-width: 834px) {
+  .pet-categories {
+    padding: 2rem;
+  }
+
+  .pet-categories hr {
+    width: 60%;
+  }
+
+  .pet-categories .category-btns {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pet-categories .category-btn {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    font-size: 5.8vw;
+    width: 32vw;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .pet-categories .category-btn * {
+    margin: 0;
+  }
+
+  .pet-categories .category-btn img {
+    width: 9vw;
+  }
+}
+
+@media only screen and (max-width: 532px) {
+  .pet-categories {
+    padding: 3rem 2.75rem;
+  }
+
+  .pet-categories h3 {
+    font-size: 1.5rem;
+  }
+
+  .pet-categories hr {
+    margin: 1.5rem auto;
+  }
+
+  .pet-categories .category-btns {
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .pet-categories .category-btn {
+    border-width: 0.25rem;
+    border-radius: 1.8rem;
+    width: 90%;
+    font-size: 1.6rem;
+    padding: 0.7rem;
+  }
+
+  .pet-categories .category-btn img {
+    width: 2.5rem;
+  }
 }
   
   /* Reasons To Buy Foods Section */
@@ -252,6 +601,71 @@ nav a:hover {
   transform: 200ms;
 }
 
+@media only screen and (max-width: 834px) {
+  .buy-food-reason {
+    flex-direction: column;
+    gap: 0;
+    margin-left: 1rem;
+    margin-right: 0;
+  }
+
+  .buy-food-reason .preview-img {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .buy-food-reason .why h3 {
+    text-align: center;
+  }
+
+  .buy-food-reason .reasons ul {
+    border-left: 0px solid transparent;
+    gap: 0.5rem;
+  }
+
+  .buy-food-reason .reasons ul li {
+    width: 48%;
+  }
+
+  .buy-food-reason .reasons ul li img {
+    width: 1.6rem;
+  }
+
+  .buy-food-reason .reasons a {
+    margin-top: 4rem;
+  }
+}
+
+@media only screen and (max-width: 535px) {
+  .buy-food-reason .preview-img {
+    display: none;
+  }
+
+  .buy-food-reason .why h3 {
+    font-size: 5.5vw;
+  }
+
+  .buy-food-reason .reasons ul {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  .buy-food-reason .reasons ul li {
+    width: 100%;
+  }
+
+  .buy-food-reason .reasons a {
+    font-size: 1.1rem;
+    gap: 0.6rem;
+    padding: 0.9rem 1.3rem;
+  }
+
+  .buy-food-reason .reasons a img {
+    width: 0.8rem;
+  }
+}
+
   /* Featured Foods */
 
 .featured-foods {
@@ -269,6 +683,7 @@ nav a:hover {
 
 .featured-foods h3 {
   font-size: 2rem;
+  text-align: center;
 }
 
 .featured-foods h3 span {
@@ -311,7 +726,7 @@ nav a:hover {
   background-color: #f1e4e6;
   text-align: center;
   margin: auto;
-  padding: 3rem;
+  padding: 1.5rem;
 }
 
 #border-top-left-radius {
@@ -328,7 +743,7 @@ nav a:hover {
 
 .featured-foods .food-sections .featured-food-contents ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: "Varela Round", sans-serif;
   margin: auto;
   padding: 0;
@@ -373,20 +788,20 @@ nav a:hover {
   display: flex;
   position: relative;
   top: 2px;
-  right: 1.5px;
+  right: 1.5%;
   justify-content: space-evenly;
   border-radius: 0 0 1.8rem 1.8rem;
-  background-color: #F04462;
-  width: 102%;
+  background-color: #F04462;/*#F04462*/
+  width: 103%;
   margin-top: 0.8rem;
 }
 
 .featured-foods .food-sections .featured-food-contents ul li a img {
-  position: relative;
-  top: 2px;
+  /* position: relative;
+  top: 2px; */
   border-color: transparent;
   background-color: transparent;
-  width: 3rem;
+  width: 3.5vw;
 }
 
 .featured-foods .food-sections .featured-food-contents ul li a {
@@ -395,7 +810,7 @@ nav a:hover {
   text-decoration: none;
   color: white;
   font-family: "Varela Round", sans-serif;
-  font-size: 2rem;
+  font-size: 2.5vw;
   width: 50%;
   align-self: center;
 }
@@ -404,4 +819,35 @@ nav a:hover {
   border-left: 1px solid white;
   /* height: 60%; */
   margin: 1.1rem 0;
+}
+
+@media only screen and (max-width: 834px) {
+  .featured-foods .food-sections .featured-food-contents {
+    padding: 3rem 1.5rem;
+  }
+
+  .featured-foods .food-sections .featured-food-contents ul {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 3rem;
+    width: 90%;
+  }
+
+  .featured-foods .food-sections .featured-food-contents ul li {
+    min-width: 10.5rem;
+  }
+
+  .featured-foods .food-sections .featured-food-contents ul li a img {
+    width: 2.6rem;
+  }
+
+  .featured-foods .food-sections .featured-food-contents ul li a {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 626px) {
+  .featured-foods {
+    display: none;
+  }
 }

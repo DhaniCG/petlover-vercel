@@ -8,7 +8,6 @@ export function loader({ request }) { // get request parameter from the submitte
     const q = url.searchParams.get("q");
     const regex = new RegExp(q, "i");
     const animal = data.filter(animal => animal.name.match(regex));
-    // console.log(q)
     return { animal, q };
 }
 
@@ -21,7 +20,6 @@ export default function Animals() {
     const animalFromLoader = contentId === 'all' ? animal : animal.filter(selected => selected.category === contentId);
     const currData = contentId === 'all' ? data : data.filter(selected => selected.category === contentId);
     const contents = q == null ? currData : animalFromLoader;
-    // console.log(window.location)
     useEffect(() => {
         document.getElementById("search").value = q;
     }, [q])
@@ -35,7 +33,7 @@ export default function Animals() {
                         type="search" 
                         name="q" 
                         id="search" 
-                        aria-label="Find pet foods"
+                        aria-label="Find pets"
                         placeholder="Search" 
                         defaultValue={q}
                         onChange={(e) => {
@@ -46,9 +44,25 @@ export default function Animals() {
                     <img src="/search-icon.svg" alt="" aria-hidden />
                 </Form>
                 <h1>{contentId.charAt(0).toUpperCase() + contentId.slice(1)}</h1>
-                <nav>
+                <div className="phone-mode">
+                    <h1 className="">{contentId.charAt(0).toUpperCase() + contentId.slice(1)}<br/><img src="/btn-arrow.svg" alt="" /></h1>
+                    <nav className="phone-tabs choices">
+                        {categories.map((category, index) => {
+                            // The slash (/) at the beginning of the "to" attribute is needed so it changes the path to that, instead of adding that path after the already existing path
+                            return <NavLink 
+                                        to={`/category/${category.toLowerCase()}`} 
+                                        className={({ isActive }) => isActive ? "active" : ""} 
+                                        aria-label={`${category} category`}
+                                        aria-current={category}
+                                        key={`category${index}`}
+                                        >
+                                        {category}
+                                    </NavLink>
+                        })}
+                    </nav>
+                </div>
+                <nav className="pc-tabs choices">
                     {categories.map((category, index) => {
-                        // The slash (/) at the beginning of the "to" attribute is needed so it changes the path to that, instead of added after the already existing path
                         return <NavLink 
                                     to={`/category/${category.toLowerCase()}`} 
                                     className={({ isActive }) => isActive ? "active" : ""} 
@@ -59,11 +73,6 @@ export default function Animals() {
                                     {category}
                                 </NavLink>
                     })}
-                    {/* <Link to={id !== "all" ? "category/all" : "#"} className={id === "all" ? "active" : ""}>All</Link>
-                    <Link to={id !== "cats" ? "category/cats" : "#"} className={id === "cats" ? "active" : ""}>Cats</Link>
-                    <Link to={id !== "dogs" ? "category/dogs" : "#"} className={id === "dogs" ? "active" : ""}>Dogs</Link>
-                    <Link to={id !== "birds" ? "category/birds" : "#"} className={id === "birds" ? "active" : ""}>Birds</Link>
-                    <Link to={id !== "fishes" ? "category/fishes" : "#"} className={id === "fishes" ? "active" : ""}>Fishes</Link> */}
                 </nav>
             </header>
 
@@ -77,7 +86,7 @@ export default function Animals() {
                                     <p>{animal.name}</p>
                                     <i>{animal.type}</i>
                                     <hr />
-                                    <Link to={animal.id}>Info</Link>
+                                    <Link to={animal.id} onClick={() => window.scrollTo(0, 0)}>Info</Link>
                                 </div>
                             </div>
                         );

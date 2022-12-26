@@ -8,7 +8,6 @@ export function loader({ request }) { // get request parameter from the submitte
     const q = url.searchParams.get("q");
     const regex = new RegExp(q, "i");
     const foods = animalFoods.filter(food => food.name.match(regex));
-    // console.log(q)
     return { foods, q };
 }
 
@@ -22,7 +21,6 @@ export default function Foods() {
     const currData = contentId === 'all' ? animalFoods : animalFoods.filter(selected => selected.category === contentId);
     const contents = q == null ? currData : foodsFromLoader;
 
-    // console.log(window.location)
     useEffect(() => {
         document.getElementById("search").value = q;
     }, [q])
@@ -47,9 +45,25 @@ export default function Foods() {
                     <img src="/search-icon.svg" alt="" aria-hidden />
                 </Form>
                 <h1>{contentId.charAt(0).toUpperCase() + contentId.slice(1)}</h1>
-                <nav>
+                <div className="phone-mode">
+                    <h1 className="">{contentId.charAt(0).toUpperCase() + contentId.slice(1)}<br/><img src="/btn-arrow.svg" alt="" /></h1>
+                    <nav className="phone-tabs choices">
+                        {categories.map((category, index) => {
+                            // The slash (/) at the beginning of the "to" attribute is needed so it changes the path to that, instead of added after the already existing path
+                            return <NavLink 
+                                        to={`/foods/${category.toLowerCase()}`} 
+                                        className={({ isActive }) => isActive ? "active" : ""} 
+                                        aria-label={`${category} foods category`}
+                                        aria-current={category}
+                                        key={`foods${index}`}
+                                        >
+                                        {category}
+                                    </NavLink>
+                        })}
+                    </nav>
+                </div>
+                <nav className="pc-tabs choices">
                     {categories.map((category, index) => {
-                        // The slash (/) at the beginning of the "to" attribute is needed so it changes the path to that, instead of added after the already existing path
                         return <NavLink 
                                     to={`/foods/${category.toLowerCase()}`} 
                                     className={({ isActive }) => isActive ? "active" : ""} 
@@ -60,11 +74,6 @@ export default function Foods() {
                                     {category}
                                 </NavLink>
                     })}
-                    {/* <Link to={id !== "all" ? "category/all" : "#"} className={id === "all" ? "active" : ""}>All</Link>
-                    <Link to={id !== "cats" ? "category/cats" : "#"} className={id === "cats" ? "active" : ""}>Cats</Link>
-                    <Link to={id !== "dogs" ? "category/dogs" : "#"} className={id === "dogs" ? "active" : ""}>Dogs</Link>
-                    <Link to={id !== "birds" ? "category/birds" : "#"} className={id === "birds" ? "active" : ""}>Birds</Link>
-                    <Link to={id !== "fishes" ? "category/fishes" : "#"} className={id === "fishes" ? "active" : ""}>Fishes</Link> */}
                 </nav>
             </header>
 
@@ -78,7 +87,7 @@ export default function Foods() {
                                     <p>{food.name}</p>
                                     <i>{food.type}</i>
                                     <hr />
-                                    <Link to={food.id}>Info</Link>
+                                    <Link to={food.id} onClick={() => window.scrollTo(0, 0)}>Info</Link>
                                 </div>
                             </div>
                         );

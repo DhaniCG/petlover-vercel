@@ -9,11 +9,9 @@ export default function FoodInfo() {
     const index = animalFoods.findIndex(foodId => foodId.id === id);
     const currentData = animalFoods[index];
 
-    console.log(currentData.pic);
-
     return (
         <>
-            <Link to={navigate(-1)} id="back">&#60; Back</Link>
+            <Link onClick={() => navigate(-1)} id="back">&#60; Back</Link>{/* Call navigate() inside of a function to prevents from navigate backward 2 times (I think because it works like an unhandled useEffect) */}
             <div id="info">
                 <img src={currentData.pic ? currentData.pic : "/image-not-found-icon.svg"} alt={currentData.type} />
                 <table>
